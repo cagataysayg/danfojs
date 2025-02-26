@@ -14,7 +14,7 @@
 */
 import DataFrame from "../core/frame"
 import { ArrayType1D, ArrayType2D } from "../shared/types"
-import { variance, std, median, mode } from 'mathjs';
+import { variance, std, median, mode } from '../custom';
 import  concat from "../transformers/concat"
 import Series from "../core/series";
 
@@ -294,6 +294,7 @@ export default class Groupby {
    * @param ops 
    */
   private groupMathLog(colVal: Array<number>, ops: string): Array<number>{
+    // @ts-ignore
     let data = []
     switch(ops) {
       case "max":
@@ -378,6 +379,7 @@ export default class Groupby {
         }, 1)
         break;
     }
+    // @ts-ignore
     return data
   }
 

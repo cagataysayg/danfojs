@@ -13,7 +13,7 @@
 * ==========================================================================
 */
 import dummyEncode from "../transformers/encoders/dummy.encoder";
-import { variance, std, median, mode, mean } from 'mathjs';
+import { variance, std, median, mode } from "../custom";
 import tensorflow from '../shared/tensorflowlib'
 import { DATA_TYPES } from '../shared/defaults';
 import { _genericMathOp } from "./math.ops";
@@ -1796,6 +1796,7 @@ export default class DataFrame extends NDframe implements DataFrameInterface {
         for (let i = 0; i < numericColumnNames.length; i++) {
             const colName = numericColumnNames[i];
             const $count = (this.$getColumnData(colName) as Series).count();
+            // @ts-ignore
             const $mean = mean(this.$getColumnData(colName, false) as number[]);
             const $std = std(this.$getColumnData(colName, false) as number[]);
             const $min = (this.$getColumnData(colName) as Series).min();

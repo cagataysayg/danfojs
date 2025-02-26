@@ -13,7 +13,7 @@
 * ==========================================================================
 */
 import dummyEncode from "../transformers/encoders/dummy.encoder";
-import { variance, std, median, mode } from 'mathjs';
+import { variance, std, median, mode } from "../custom";
 import tensorflow from '../shared/tensorflowlib'
 import { DATA_TYPES } from '../shared/defaults'
 import { _genericMathOp } from "./math.ops";
